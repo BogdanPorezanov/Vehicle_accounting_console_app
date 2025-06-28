@@ -5,106 +5,169 @@ int Vehicle::id_counter = 0;
 
 int main()
 {
-	/*Vehicle v("suz", "sem", 1, 2);
-	Vehicle vz("suz", "sem", 1, 2);
-	Car c("suz", "sem", 1, 2, 3, 4);
-	std::cout << vz.Get_id() << std::endl;
-	std::cout << c.Get_id() << std::endl;
+	Parse_consol parser;
+	parser.run();
+	return 0;
+}
 
-	std::cout << vz.Get_id_counter() << std::endl;
-	std::cout << c.Get_id_counter() << std::endl;
+Parse_consol::Parse_consol()
+{
+}
 
-	Car cz("suz", "sem", 1, 2, 3, 4);
-	Vehicle vx("suz", "sem", 1, 2);
-	std::cout << vx.Get_id_counter() << std::endl;
-	std::cout << cz.Get_id_counter() << std::endl;*/
+Parse_consol::~Parse_consol()
+{
+}
 
+void Parse_consol::run()
+{
 	while (1)
 	{
-		Parse_console_input();
-		return 0;
-	}
-	
-	//return 0;
-}
-
-inline void Parse_console_input()
-{
-	std::string in;
-	std::cout << "List of possible commands:\n 1.Creation\n 2.Editing\n 3.Deletion\n " << 
-		"4.Displaying the entire list sorted by the selected field\n " <<
-		"5.Search by selected field\n 6.Save all entries to a file\n " <<
-		"7.Download all recordings from a file\n\nEnter the command number:" << std::endl; // Список доступных команд
-	std::cin >> in;
-	int In_number;
-	try
-	{
-		In_number = std::stoi(in);
-	}
-	catch (const std::exception&)
-	{
-		std::cout << "invalid command number\n";
-		return;
-	}
-	//std::cout << "Input command " << In_number;
-	switch (In_number)
-	{
-	case 1: // Создание
-		if (Command_1())
+		std::string in;
+		std::cout << "List of possible commands:\n 1.Creation\n 2.Editing\n 3.Deletion\n " <<
+			"4.Displaying the entire list sorted by the selected field\n " <<
+			"5.Search by selected field\n 6.Save all entries to a file\n " <<
+			"7.Download all recordings from a file\n\nEnter the command number:" << std::endl; // Список доступных команд
+		std::cin >> in;
+		int In_number;
+		try
 		{
-			
-
+			In_number = std::stoi(in);
 		}
-		break;
-	case 2: // Редактирование
-		if (Command_2())
+		catch (const std::exception&)
 		{
-
+			std::cout << "invalid command number\n";
+			continue;
 		}
-		break;
-	case 3: // Удаление
-		if (Command_3())
+		switch (In_number)
 		{
+		case 1: // Создание
+			if (Command_1())
+			{
 
-		}
-		break;
-	case 4: // Отображение всего списка с сортировкой по выбранному полю
-		if (Command_4())
-		{
 
-		}
-		break;
-	case 5: // Поиск по выбранному полю
-		if (Command_5())
-		{
+			}
+			break;
+		case 2: // Редактирование
+			if (Command_2())
+			{
 
-		}
-		break;
-	case 6: // Сохранение всех записей в файл
-		if (Command_6())
-		{
+			}
+			break;
+		case 3: // Удаление
+			if (Command_3())
+			{
 
-		}
-		break;
-	case 7: // Загрузка всех записей из файла
-		if (Command_7())
-		{
+			}
+			break;
+		case 4: // Отображение всего списка с сортировкой по выбранному полю
+			if (Command_4())
+			{
 
+			}
+			break;
+		case 5: // Поиск по выбранному полю
+			if (Command_5())
+			{
+
+			}
+			break;
+		case 6: // Сохранение всех записей в файл
+			if (Command_6())
+			{
+
+			}
+			break;
+		case 7: // Загрузка всех записей из файла
+			if (Command_7())
+			{
+
+			}
+			break;
+		default:
+			std::cout << "invalid command number\n";
+			break;
 		}
-		break;
-	default:
-		std::cout << "invalid command number\n";
-		break;
 	}
 }
 
-bool Checking_for_the_correct_number_input(std::string console_out, int& value)
+//inline void Parse_console_input()
+//{
+//	std::string in;
+//	std::cout << "List of possible commands:\n 1.Creation\n 2.Editing\n 3.Deletion\n " << 
+//		"4.Displaying the entire list sorted by the selected field\n " <<
+//		"5.Search by selected field\n 6.Save all entries to a file\n " <<
+//		"7.Download all recordings from a file\n\nEnter the command number:" << std::endl; // Список доступных команд
+//	std::cin >> in;
+//	int In_number;
+//	try
+//	{
+//		In_number = std::stoi(in);
+//	}
+//	catch (const std::exception&)
+//	{
+//		std::cout << "invalid command number\n";
+//		return;
+//	}
+//	//std::cout << "Input command " << In_number;
+//	switch (In_number)
+//	{
+//	case 1: // Создание
+//		if (Command_1())
+//		{
+//			
+//
+//		}
+//		break;
+//	case 2: // Редактирование
+//		if (Command_2())
+//		{
+//
+//		}
+//		break;
+//	case 3: // Удаление
+//		if (Command_3())
+//		{
+//
+//		}
+//		break;
+//	case 4: // Отображение всего списка с сортировкой по выбранному полю
+//		if (Command_4())
+//		{
+//
+//		}
+//		break;
+//	case 5: // Поиск по выбранному полю
+//		if (Command_5())
+//		{
+//
+//		}
+//		break;
+//	case 6: // Сохранение всех записей в файл
+//		if (Command_6())
+//		{
+//
+//		}
+//		break;
+//	case 7: // Загрузка всех записей из файла
+//		if (Command_7())
+//		{
+//
+//		}
+//		break;
+//	default:
+//		std::cout << "invalid command number\n";
+//		break;
+//	}
+//}
+
+bool Parse_consol::Checking_for_the_correct_number_input(std::string console_out, int& value)
 {
+	std::string Console_input;
 	std::cout << console_out;
-	std::cin >> Console_input_for_numbers;
+	std::cin >> Console_input;
 	try
 	{
-		value = std::stoi(Console_input_for_numbers);
+		value = std::stoi(Console_input);
 	}
 	catch (const std::exception&)
 	{
@@ -114,7 +177,7 @@ bool Checking_for_the_correct_number_input(std::string console_out, int& value)
 	return false;
 }
 
-bool Command_1()
+bool Parse_consol::Command_1()
 {
 	std::string last_Type;
 	std::string last_Brand;
@@ -132,38 +195,38 @@ bool Command_1()
 	std::cin >> last_Year_of_release;
 	std::cout << "Enter the weight\n";
 	std::cin >> last_Weight;*/
-	while (Checking_for_the_correct_number_input("Enter the year of release\n", last_Year_of_release)) {}
-	while (Checking_for_the_correct_number_input("Enter the weight\n", last_Weight)) {}
+	while (Checking_for_the_correct_number_input("Enter the year of release\n", last_Year_of_release)) {};
+	while (Checking_for_the_correct_number_input("Enter the weight\n", last_Weight)) {};
 
 	return false;
 }
 
-bool Command_2()
+bool Parse_consol::Command_2()
 {
 	return false;
 }
 
-bool Command_3()
+bool Parse_consol::Command_3()
 {
 	return false;
 }
 
-bool Command_4()
+bool Parse_consol::Command_4()
 {
 	return false;
 }
 
-bool Command_5()
+bool Parse_consol::Command_5()
 {
 	return false;
 }
 
-int Command_6()
+int Parse_consol::Command_6()
 {
 	return 0;
 }
 
-int Command_7()
+int Parse_consol::Command_7()
 {
 	return 0;
 }
@@ -191,3 +254,5 @@ Car::Car(std::string Brand, std::string Model, int Year_of_release, int Weight, 
 Car::~Car()
 {
 }
+
+

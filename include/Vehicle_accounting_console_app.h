@@ -2,21 +2,36 @@
 
 #include <iostream>
 #include <string>
-//#include 
 
-extern std::string Console_input_for_numbers;
+class Parse_consol
+{
+public:
+	Parse_consol();
+	~Parse_consol();
+	void run();
+private:
+	bool Checking_for_the_correct_number_input(std::string, int&);
 
-inline void Parse_console_input();
+	bool Command_1();
+	bool Command_2();
+	bool Command_3();
+	bool Command_4();
+	bool Command_5();
+	int Command_6();
+	int Command_7();
+};
 
-bool Checking_for_the_correct_number_input(std::string, int&);
+//inline void Parse_console_input();
 
-bool Command_1();
-bool Command_2();
-bool Command_3();
-bool Command_4();
-bool Command_5();
-int Command_6();
-int Command_7();
+//bool Checking_for_the_correct_number_input(std::string, int&);
+
+//bool Command_1();
+//bool Command_2();
+//bool Command_3();
+//bool Command_4();
+//bool Command_5();
+//int Command_6();
+//int Command_7();
 
 class Vehicle
 {
