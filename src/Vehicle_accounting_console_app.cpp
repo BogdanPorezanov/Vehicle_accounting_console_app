@@ -179,6 +179,7 @@ bool Parse_consol::Deletion() // Command 3
 
 bool Parse_consol::Display_with_sorting() // Command 4
 {
+	std::cout << "Enter the type of vehicle\n";
 	return false;
 }
 

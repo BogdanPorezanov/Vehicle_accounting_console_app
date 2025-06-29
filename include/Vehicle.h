@@ -32,3 +32,36 @@ private:
 	int Number_of_owners;
 	int Mileage;
 };
+
+class Boat : public Vehicle
+{
+public:
+	Boat(std::string, std::string, int, int, int, int); // + водоизмещение, глубина погружения винта
+	~Boat();
+
+private:
+	int Displacement;
+	int Propeller_immersion_depth;
+};
+
+class Airplane : public Vehicle
+{
+public:
+	Airplane(std::string, std::string, int, int, int, int); // + грузоподъёмность, размах крыла
+	~Airplane();
+
+private:
+	int Cargo_capacity;
+	int Wingspan;
+};
+
+class Spaceship : public Vehicle
+{
+public:
+	Spaceship(std::string, std::string, int, int, std::string, int); // + грузоподъёмность, размах крыла
+	~Spaceship();
+
+private:
+	std::string Fuel_type;
+	int Hyperjump_range;
+};

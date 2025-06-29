@@ -26,3 +26,36 @@ Car::Car(std::string Brand, std::string Model, int Year_of_release, int Weight, 
 Car::~Car()
 {
 }
+
+Boat::Boat(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth) :Vehicle(Brand, Model, Year_of_release, Weight)
+{
+	this->Type = "boat";
+	this->Displacement = Displacement;
+	this->Propeller_immersion_depth = Propeller_immersion_depth;
+}
+
+Boat::~Boat()
+{
+}
+
+Airplane::Airplane(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan) :Vehicle(Brand, Model, Year_of_release, Weight)
+{
+	this->Type = "airplane";
+	this->Cargo_capacity = Cargo_capacity;
+	this->Wingspan = Wingspan;
+}
+
+Airplane::~Airplane()
+{
+}
+
+Spaceship::Spaceship(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range) :Vehicle(Brand, Model, Year_of_release, Weight)
+{
+	this->Type = "spaceship";
+	this->Fuel_type = Fuel_type;
+	this->Hyperjump_range = Hyperjump_range;
+}
+
+Spaceship::~Spaceship()
+{
+}
