@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Parse_consol
 {
@@ -10,7 +11,10 @@ public:
 	~Parse_consol();
 	void run();
 private:
-	bool Checking_for_the_correct_number_input(std::string, int&);
+	std::vector<std::string> Acceptable_types_of_vehicles = { "Car", "car", "Boat", "boat", "Airplane", "airplane", "Spaceship", "spaceship" };
+	
+	bool Checking_correct_number_input(std::string, int&);
+	bool Checking_correct_types_of_vehicles(std::string&);
 
 	bool Command_1();
 	bool Command_2();
