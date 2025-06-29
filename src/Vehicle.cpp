@@ -1,5 +1,4 @@
 #include "Vehicle.h"
-#include "Vehicle.h"
 
 int Vehicle::id_counter = 0;
 

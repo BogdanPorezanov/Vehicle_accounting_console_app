@@ -18,13 +18,20 @@ private:
 	bool Checking_correct_number_input(std::string, int&);
 	bool Checking_correct_types_of_vehicles(std::string&);
 
-	bool Command_1();
-	bool Command_2();
-	bool Command_3();
-	bool Command_4();
-	bool Command_5();
-	int Command_6();
-	int Command_7();
+	// Command 1
+	bool Creation();
+	// Command 2
+	bool Editing();
+	// Command 3
+	bool Deletion();
+	// Command 4
+	bool Display_with_sorting();
+	// Command 5
+	bool Search();
+	// Command 6
+	int Save();
+	// Command 7
+	int Load();
 };
 
 //class Vehicle

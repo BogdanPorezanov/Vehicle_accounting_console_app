@@ -1,6 +1,5 @@
 ﻿#include "Vehicle_accounting_console_app.h"
 
-
 //int Vehicle::id_counter = 0;
 
 int main()
@@ -44,44 +43,44 @@ void Parse_consol::run()
 		switch (In_number)
 		{
 		case 1: // Создание
-			if (Command_1())
+			if (Creation())
 			{
 
 
 			}
 			break;
 		case 2: // Редактирование
-			if (Command_2())
+			if (Editing())
 			{
 
 			}
 			break;
 		case 3: // Удаление
-			if (Command_3())
+			if (Deletion())
 			{
 
 			}
 			break;
 		case 4: // Отображение всего списка с сортировкой по выбранному полю
-			if (Command_4())
+			if (Display_with_sorting())
 			{
 
 			}
 			break;
 		case 5: // Поиск по выбранному полю
-			if (Command_5())
+			if (Search())
 			{
 
 			}
 			break;
 		case 6: // Сохранение всех записей в файл
-			if (Command_6())
+			if (Save())
 			{
 
 			}
 			break;
 		case 7: // Загрузка всех записей из файла
-			if (Command_7())
+			if (Load())
 			{
 
 			}
@@ -126,7 +125,7 @@ bool Parse_consol::Checking_correct_types_of_vehicles(std::string &last_Type)
 	return true;
 }
 
-bool Parse_consol::Command_1()
+bool Parse_consol::Creation() // Command 1
 {
 	std::string last_Type;
 	std::string last_Brand;
@@ -142,36 +141,58 @@ bool Parse_consol::Command_1()
 	std::cin >> last_Model;
 	while (Checking_correct_number_input("Enter the year of release\n", last_Year_of_release)) {};
 	while (Checking_correct_number_input("Enter the weight\n", last_Weight)) {};
+	if (last_Type == "Car" || last_Type == "car")
+	{
+		int last_Number_of_owners;
+		int last_Mileage;
+		while (Checking_correct_number_input("Enter the number_of_owners\n", last_Number_of_owners)) {};
+		while (Checking_correct_number_input("Enter the mileage\n", last_Mileage)) {};
+		vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
+	}
+	else if (last_Type == "Boat" || last_Type == "boat")
+	{
+
+	}
+	else if (last_Type == "Airplane" || last_Type == "airplane")
+	{
+
+	}
+	else if (last_Type == "Spaceship" || last_Type == "spaceship")
+	{
+
+	}
+
+	/*vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight));*/
 
 	return false;
 }
 
-bool Parse_consol::Command_2()
+bool Parse_consol::Editing() // Command 2
 {
 	return false;
 }
 
-bool Parse_consol::Command_3()
+bool Parse_consol::Deletion() // Command 3
 {
 	return false;
 }
 
-bool Parse_consol::Command_4()
+bool Parse_consol::Display_with_sorting() // Command 4
 {
 	return false;
 }
 
-bool Parse_consol::Command_5()
+bool Parse_consol::Search() // Command 5
 {
 	return false;
 }
 
-int Parse_consol::Command_6()
+int Parse_consol::Save() // Command 6
 {
 	return 0;
 }
 
-int Parse_consol::Command_7()
+int Parse_consol::Load() // Command 7
 {
 	return 0;
 }
