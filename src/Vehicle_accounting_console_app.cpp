@@ -145,24 +145,35 @@ bool Parse_consol::Creation() // Command 1
 	{
 		int last_Number_of_owners;
 		int last_Mileage;
-		while (Checking_correct_number_input("Enter the number_of_owners\n", last_Number_of_owners)) {};
+		while (Checking_correct_number_input("Enter the number of owners\n", last_Number_of_owners)) {};
 		while (Checking_correct_number_input("Enter the mileage\n", last_Mileage)) {};
 		vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
 	}
 	else if (last_Type == "Boat" || last_Type == "boat")
 	{
-
+		int last_Displacement;
+		int last_Propeller_immersion_depth;
+		while (Checking_correct_number_input("Enter the displacement\n", last_Displacement)) {};
+		while (Checking_correct_number_input("Enter the propeller_immersion_depth\n", last_Propeller_immersion_depth)) {};
+		vector_ptr->push_back(Boat(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
 	}
 	else if (last_Type == "Airplane" || last_Type == "airplane")
 	{
-
+		int last_Cargo_capacity;
+		int last_Wingspan;
+		while (Checking_correct_number_input("Enter the cargo capacity\n", last_Cargo_capacity)) {};
+		while (Checking_correct_number_input("Enter the wingspan\n", last_Wingspan)) {};
+		vector_ptr->push_back(Airplane(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
 	}
 	else if (last_Type == "Spaceship" || last_Type == "spaceship")
 	{
-
+		std::string last_Fuel_type;
+		int last_Hyperjump_range;
+		std::cout << "Enter the fuel type\n";
+		std::cin >> last_Fuel_type;
+		while (Checking_correct_number_input("Enter the hyperjump range\n", last_Hyperjump_range)) {};
+		vector_ptr->push_back(Spaceship(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
 	}
-
-	/*vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight));*/
 
 	return false;
 }
