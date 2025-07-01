@@ -179,7 +179,8 @@ bool Parse_consol::Deletion() // Command 3
 
 bool Parse_consol::Display_with_sorting() // Command 4
 {
-	std::cout << "Enter the type of vehicle\n";
+	std::string sort_fieeld;
+	std::cout << "Enter the field for sort\n";
 	return false;
 }
 

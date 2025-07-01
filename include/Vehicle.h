@@ -1,25 +1,27 @@
 #pragma once
 
 #include <string>
+#include <map>
+#include <variant>
 
 class Vehicle
 {
 public:
 	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
 	~Vehicle();
-	int Get_id() { return id; }
 	int Get_id_counter() { return id_counter; }
 
 protected:
-	std::string Type;
+	//std::string Type;
+	std::map<std::string, std::variant<std::string, int>> Table_fields;
 private:
 	static int id_counter;
-
-	int id;
+	
+	/*int id;
 	std::string Brand;
 	std::string Model;
 	int Year_of_release;
-	int Weight;
+	int Weight;*/
 
 };
 
@@ -29,8 +31,8 @@ public:
 	Car(std::string, std::string, int, int, int, int); // + число владельцев, пробег
 	~Car();
 private:
-	int Number_of_owners;
-	int Mileage;
+	/*int Number_of_owners;
+	int Mileage;*/
 };
 
 class Boat : public Vehicle
@@ -40,8 +42,8 @@ public:
 	~Boat();
 
 private:
-	int Displacement;
-	int Propeller_immersion_depth;
+	/*int Displacement;
+	int Propeller_immersion_depth;*/
 };
 
 class Airplane : public Vehicle
@@ -51,8 +53,8 @@ public:
 	~Airplane();
 
 private:
-	int Cargo_capacity;
-	int Wingspan;
+	/*int Cargo_capacity;
+	int Wingspan;*/
 };
 
 class Spaceship : public Vehicle
@@ -62,6 +64,6 @@ public:
 	~Spaceship();
 
 private:
-	std::string Fuel_type;
-	int Hyperjump_range;
+	/*std::string Fuel_type;
+	int Hyperjump_range;*/
 };
