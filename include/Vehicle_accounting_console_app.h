@@ -16,6 +16,7 @@ private:
 	std::vector<Vehicle>* vector_ptr;
 	
 	bool Checking_correct_number_input(std::string, int&);
+	bool Checking_correct_number_short(std::string, int&);
 	bool Checking_correct_types_of_vehicles(std::string&);
 
 	// Command 1

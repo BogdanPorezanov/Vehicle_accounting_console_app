@@ -103,7 +103,21 @@ bool Parse_consol::Checking_correct_number_input(std::string console_out, int &v
 	}
 	catch (const std::exception&)
 	{
-		std::cout << "Number input error\n";
+		std::cout << "Invalid number\n";
+		return true;
+	}
+	return false;
+}
+
+bool Parse_consol::Checking_correct_number_short(std::string console_in, int& value)
+{
+	try
+	{
+		value = std::stoi(console_in);
+	}
+	catch (const std::exception&)
+	{
+		std::cout << "Invalid number\n";
 		return true;
 	}
 	return false;

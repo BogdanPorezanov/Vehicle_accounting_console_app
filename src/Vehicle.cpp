@@ -24,6 +24,14 @@ void Vehicle::Display()
 		<< Weight << "\t";
 }
 
+//void Vehicle::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight)
+//{
+//	this->Brand = Brand;
+//	this->Model = Model;
+//	this->Year_of_release = Year_of_release;
+//	this->Weight = Weight;
+//}
+
 
 Car::Car(std::string Brand, std::string Model, int Year_of_release, int Weight, int Number_of_owners, int Mileage) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
@@ -33,6 +41,15 @@ Car::Car(std::string Brand, std::string Model, int Year_of_release, int Weight, 
 
 Car::~Car()
 {
+}
+
+void Car::Display()
+{
+	std::cout << id << "\t"
+		<< "Car\t";
+	Vehicle::Display();
+	std::cout << Number_of_owners << "\t"
+		<< Mileage << "\t";
 }
 
 Boat::Boat(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth) :Vehicle(Brand, Model, Year_of_release, Weight)
@@ -45,6 +62,15 @@ Boat::~Boat()
 {
 }
 
+void Boat::Display()
+{
+	std::cout << id << "\t"
+		<< "Boat\t";
+	Vehicle::Display();
+	std::cout << Displacement << "\t"
+		<< Propeller_immersion_depth << "\t";
+}
+
 Airplane::Airplane(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
 	this->Cargo_capacity = Cargo_capacity;
@@ -55,6 +81,15 @@ Airplane::~Airplane()
 {
 }
 
+void Airplane::Display()
+{
+	std::cout << id << "\t"
+		<< "Airplane\t";
+	Vehicle::Display();
+	std::cout << Cargo_capacity << "\t"
+		<< Wingspan << "\t";
+}
+
 Spaceship::Spaceship(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
 	this->Fuel_type = Fuel_type;
@@ -63,4 +98,13 @@ Spaceship::Spaceship(std::string Brand, std::string Model, int Year_of_release, 
 
 Spaceship::~Spaceship()
 {
+}
+
+void Spaceship::Display()
+{
+	std::cout << id << "\t"
+		<< "Spaceship\t";
+	Vehicle::Display();
+	std::cout << Fuel_type << "\t"
+		<< Hyperjump_range << "\t";
 }
