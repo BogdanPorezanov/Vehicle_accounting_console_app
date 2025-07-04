@@ -15,6 +15,15 @@ Vehicle::~Vehicle()
 {
 }
 
+void Vehicle::Display()
+{
+	std::cout << id << "\t"
+		<< Brand << "\t"
+		<< Model << "\t"
+		<< Year_of_release << "\t"
+		<< Weight << "\t";
+}
+
 
 Car::Car(std::string Brand, std::string Model, int Year_of_release, int Weight, int Number_of_owners, int Mileage) :Vehicle(Brand, Model, Year_of_release, Weight)
 {

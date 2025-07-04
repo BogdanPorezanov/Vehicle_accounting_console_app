@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 
 class Vehicle
@@ -7,6 +8,7 @@ class Vehicle
 public:
 	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
 	~Vehicle();
+
 	int Get_id() { return id; }
 	int Get_id_counter() { return id_counter; }
 	virtual std::string Get_Type() = 0;
@@ -14,6 +16,8 @@ public:
 	std::string Get_Model() { return Model; }
 	int Get_Year_of_release() { return Year_of_release; }
 	int Get_Weight() { return Weight; }
+
+	virtual void Display();
 
 protected:
 	//std::string Type;
