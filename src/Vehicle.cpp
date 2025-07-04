@@ -52,6 +52,16 @@ void Car::Display()
 		<< Mileage << "\t";
 }
 
+void Car::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Number_of_owners, int Mileage)
+{
+	this->Brand = Brand;
+	this->Model = Model;
+	this->Year_of_release = Year_of_release;
+	this->Weight = Weight;
+	this->Number_of_owners = Number_of_owners;
+	this->Mileage = Mileage;
+}
+
 Boat::Boat(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
 	this->Displacement = Displacement;
@@ -69,6 +79,16 @@ void Boat::Display()
 	Vehicle::Display();
 	std::cout << Displacement << "\t"
 		<< Propeller_immersion_depth << "\t";
+}
+
+void Boat::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth)
+{
+	this->Brand = Brand;
+	this->Model = Model;
+	this->Year_of_release = Year_of_release;
+	this->Weight = Weight;
+	this->Displacement = Displacement;
+	this->Propeller_immersion_depth = Propeller_immersion_depth;
 }
 
 Airplane::Airplane(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan) :Vehicle(Brand, Model, Year_of_release, Weight)
@@ -90,6 +110,16 @@ void Airplane::Display()
 		<< Wingspan << "\t";
 }
 
+void Airplane::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan)
+{
+	this->Brand = Brand;
+	this->Model = Model;
+	this->Year_of_release = Year_of_release;
+	this->Weight = Weight;
+	this->Cargo_capacity = Cargo_capacity;
+	this->Wingspan = Wingspan;
+}
+
 Spaceship::Spaceship(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
 	this->Fuel_type = Fuel_type;
@@ -107,4 +137,14 @@ void Spaceship::Display()
 	Vehicle::Display();
 	std::cout << Fuel_type << "\t"
 		<< Hyperjump_range << "\t";
+}
+
+void Spaceship::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range)
+{
+	this->Brand = Brand;
+	this->Model = Model;
+	this->Year_of_release = Year_of_release;
+	this->Weight = Weight;
+	this->Fuel_type = Fuel_type;
+	this->Hyperjump_range = Hyperjump_range;
 }

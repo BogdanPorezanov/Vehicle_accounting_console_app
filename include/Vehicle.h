@@ -102,7 +102,7 @@ public:
 	int Get_Hyperjump_range() { return Hyperjump_range; }
 
 	void Display() override;
-	void Edit(std::string, std::string, int, int, int, int);
+	void Edit(std::string, std::string, int, int, std::string, int);
 
 private:
 	std::string Fuel_type;
