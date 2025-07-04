@@ -4,17 +4,20 @@
 
 int main()
 {
-	std::vector<Vehicle> vector;
-	Parse_consol parser(vector);
-	//Parse_consol parser;
+	//std::vector<Vehicle> vector;
+	Parse_consol parser;
 	parser.run();
 	return 0;
 }
 
-Parse_consol::Parse_consol(std::vector<Vehicle> vector)
+Parse_consol::Parse_consol() 
 {
-	this->vector_ptr = &vector;
 }
+
+//Parse_consol::Parse_consol(std::vector<Vehicle> vector)
+//{
+//	this->vector_ptr = &vector;
+//}
 
 Parse_consol::~Parse_consol()
 {
@@ -161,7 +164,7 @@ bool Parse_consol::Creation() // Command 1
 		int last_Mileage;
 		while (Checking_correct_number_input("Enter the number_of_owners\n", last_Number_of_owners)) {};
 		while (Checking_correct_number_input("Enter the mileage\n", last_Mileage)) {};
-		vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
+		Table.push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
 	}
 	else if (last_Type == "Boat" || last_Type == "boat")
 	{
@@ -176,18 +179,23 @@ bool Parse_consol::Creation() // Command 1
 
 	}
 
-	/*vector_ptr->push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight));*/
-
+	std::cout << "Record was created with ID:\n";
 	return false;
 }
 
 bool Parse_consol::Editing() // Command 2
 {
+	int id_value;
+	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
+	
 	return false;
 }
 
 bool Parse_consol::Deletion() // Command 3
 {
+	int id_value;
+	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
+
 	return false;
 }
 
