@@ -23,6 +23,54 @@ void Vehicle::Display()
 		<< Weight << "\t";
 }
 
+void Vehicle::Edit()
+{
+	while (Edit_string("Enter the brand\n", this->Brand)) {};
+	while (Edit_string("Enter the model\n", this->Model)) {};
+	while (Edit_number("Enter the year of release\n", this->Year_of_release)) {};
+	while (Edit_number("Enter the weight\n", this->Weight)) {};
+}
+
+bool Vehicle::Edit_string(std::string console_out, std::string &value)
+{
+	std::string Console_input;
+	std::cout << console_out;
+	std::cin >> Console_input;
+	if (Console_input == "-")
+	{
+		return false;
+	}
+	else
+	{
+		value = Console_input;
+		return false;
+	}
+}
+
+bool Vehicle::Edit_number(std::string console_out, int & value)
+{
+	std::string Console_input;
+	std::cout << console_out;
+	std::cin >> Console_input;
+	if (Console_input == "-")
+	{
+		return false;
+	}
+	else
+	{
+		try
+		{
+			value = std::stoi(Console_input);
+		}
+		catch (const std::exception&)
+		{
+			std::cout << "Invalid number\n";
+			return true;
+		}
+		return false;
+	}
+}
+
 //void Vehicle::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight)
 //{
 //	this->Brand = Brand;
@@ -51,15 +99,22 @@ void Car::Display()
 		<< Mileage << "\t";
 }
 
-void Car::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Number_of_owners, int Mileage)
+void Car::Edit()
 {
-	this->Brand = Brand;
-	this->Model = Model;
-	this->Year_of_release = Year_of_release;
-	this->Weight = Weight;
-	this->Number_of_owners = Number_of_owners;
-	this->Mileage = Mileage;
+	Vehicle::Edit();
+	while (Edit_number("Enter the number of owners\n", this->Number_of_owners)) {};
+	while (Edit_number("Enter the mileage\n", this->Mileage)) {};
 }
+
+//void Car::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Number_of_owners, int Mileage)
+//{
+//	this->Brand = Brand;
+//	this->Model = Model;
+//	this->Year_of_release = Year_of_release;
+//	this->Weight = Weight;
+//	this->Number_of_owners = Number_of_owners;
+//	this->Mileage = Mileage;
+//}
 
 Boat::Boat(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
@@ -80,15 +135,22 @@ void Boat::Display()
 		<< Propeller_immersion_depth << "\t";
 }
 
-void Boat::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth)
+void Boat::Edit()
 {
-	this->Brand = Brand;
-	this->Model = Model;
-	this->Year_of_release = Year_of_release;
-	this->Weight = Weight;
-	this->Displacement = Displacement;
-	this->Propeller_immersion_depth = Propeller_immersion_depth;
+	Vehicle::Edit();
+	while (Edit_number("Enter the number of displacement\n", this->Displacement)) {};
+	while (Edit_number("Enter the propeller immersion depth\n", this->Propeller_immersion_depth)) {};
 }
+
+//void Boat::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Displacement, int Propeller_immersion_depth)
+//{
+//	this->Brand = Brand;
+//	this->Model = Model;
+//	this->Year_of_release = Year_of_release;
+//	this->Weight = Weight;
+//	this->Displacement = Displacement;
+//	this->Propeller_immersion_depth = Propeller_immersion_depth;
+//}
 
 Airplane::Airplane(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
@@ -109,15 +171,22 @@ void Airplane::Display()
 		<< Wingspan << "\t";
 }
 
-void Airplane::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan)
+void Airplane::Edit()
 {
-	this->Brand = Brand;
-	this->Model = Model;
-	this->Year_of_release = Year_of_release;
-	this->Weight = Weight;
-	this->Cargo_capacity = Cargo_capacity;
-	this->Wingspan = Wingspan;
+	Vehicle::Edit();
+	while (Edit_number("Enter the cargo capacity\n", this->Cargo_capacity)) {};
+	while (Edit_number("Enter the wingspan\n", this->Wingspan)) {};
 }
+
+//void Airplane::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, int Cargo_capacity, int Wingspan)
+//{
+//	this->Brand = Brand;
+//	this->Model = Model;
+//	this->Year_of_release = Year_of_release;
+//	this->Weight = Weight;
+//	this->Cargo_capacity = Cargo_capacity;
+//	this->Wingspan = Wingspan;
+//}
 
 Spaceship::Spaceship(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range) :Vehicle(Brand, Model, Year_of_release, Weight)
 {
@@ -138,12 +207,19 @@ void Spaceship::Display()
 		<< Hyperjump_range << "\t";
 }
 
-void Spaceship::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range)
+void Spaceship::Edit()
 {
-	this->Brand = Brand;
-	this->Model = Model;
-	this->Year_of_release = Year_of_release;
-	this->Weight = Weight;
-	this->Fuel_type = Fuel_type;
-	this->Hyperjump_range = Hyperjump_range;
+	Vehicle::Edit();
+	while (Edit_string("Enter the fuel type\n", this->Fuel_type)) {};
+	while (Edit_number("Enter the hyperjump range\n", this->Hyperjump_range)) {};
 }
+
+//void Spaceship::Edit(std::string Brand, std::string Model, int Year_of_release, int Weight, std::string Fuel_type, int Hyperjump_range)
+//{
+//	this->Brand = Brand;
+//	this->Model = Model;
+//	this->Year_of_release = Year_of_release;
+//	this->Weight = Weight;
+//	this->Fuel_type = Fuel_type;
+//	this->Hyperjump_range = Hyperjump_range;
+//}

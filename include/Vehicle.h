@@ -20,10 +20,12 @@ public:
 	void Set_id_counter(int value) { this->id_counter = value; }
 
 	virtual void Display();
+	virtual void Edit();
 	//virtual void Edit(std::string, std::string, int, int);
 
 protected:
-	//std::string Type;
+	bool Edit_string(std::string, std::string&);
+	bool Edit_number(std::string, int&);
 
 	int id;
 	std::string Brand;
@@ -48,7 +50,8 @@ public:
 	int Get_Mileage() { return Mileage; }
 
 	void Display() override;
-	void Edit(std::string, std::string, int, int, int, int);
+	void Edit() override;
+	//void Edit(std::string, std::string, int, int, int, int);
 
 private:
 	int Number_of_owners;
@@ -66,7 +69,8 @@ public:
 	int Get_Propeller_immersion_depth() { return Propeller_immersion_depth; }
 
 	void Display() override;
-	void Edit(std::string, std::string, int, int, int, int);
+	void Edit() override;
+	//void Edit(std::string, std::string, int, int, int, int);
 
 private:
 	int Displacement;
@@ -84,7 +88,8 @@ public:
 	int Get_Wingspan() { return Wingspan; }
 
 	void Display() override;
-	void Edit(std::string, std::string, int, int, int, int);
+	void Edit() override;
+	//void Edit(std::string, std::string, int, int, int, int);
 
 private:
 	int Cargo_capacity;
@@ -102,7 +107,8 @@ public:
 	int Get_Hyperjump_range() { return Hyperjump_range; }
 
 	void Display() override;
-	void Edit(std::string, std::string, int, int, std::string, int);
+	void Edit() override;
+	//void Edit(std::string, std::string, int, int, std::string, int);
 
 private:
 	std::string Fuel_type;
