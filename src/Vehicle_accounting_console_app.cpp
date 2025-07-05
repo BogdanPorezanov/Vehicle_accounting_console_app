@@ -28,7 +28,7 @@ void Parse_consol::run()
 	while (1)
 	{
 		std::string in;
-		std::cout << "List of possible commands:\n 1.Creation\n 2.Editing\n 3.Deletion\n " <<
+		std::cout << "\nList of possible commands:\n 1.Creation\n 2.Editing\n 3.Deletion\n " <<
 			"4.Displaying the entire list sorted by the selected field\n " <<
 			"5.Search by selected field\n 6.Save all entries to a file\n " <<
 			"7.Download all recordings from a file\n\nEnter the command number:" << std::endl; // Список доступных команд
@@ -212,24 +212,32 @@ bool Parse_consol::Editing() // Command 2
 {
 	int id_value;
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
-	
-	return false;
+	for (auto &el : Table)
+	{
+		if (el.Get_id() == id_value)
+		{
+			el.Edit();
+			return false;
+		}
+	}
+	std::cout << "Vehicle with this ID does not exist!\n";
+	return true;
 }
 
 bool Parse_consol::Deletion() // Command 3
 {
 	int id_value;
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
-	
-	for (auto el : Table)
+	for (auto i = Table.begin(); i != Table.end(); ++i)
 	{
-		if (el.Get_id() == id_value)
+		if (i->Get_id() == id_value)
 		{
-			el.E
+			Table.erase(i);
+			return false;
 		}
 	}
-
-	return false;
+	std::cout << "Vehicle with this ID does not exist!\n";
+	return true;
 }
 
 bool Parse_consol::Display_with_sorting() // Command 4
