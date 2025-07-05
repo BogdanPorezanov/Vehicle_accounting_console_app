@@ -125,6 +125,22 @@ bool Parse_consol::Checking_correct_number_short(std::string console_in, int &va
 	return false;
 }
 
+bool Parse_consol::Checking_correct_number_short(int &value)
+{
+	std::string Console_input;
+	std::cin >> Console_input;
+	try
+	{
+		value = std::stoi(Console_input);
+	}
+	catch (const std::exception&)
+	{
+		std::cout << "Invalid number\n";
+		return true;
+	}
+	return false;
+}
+
 bool Parse_consol::Checking_correct_types_of_vehicles(int &last_Type)
 {
 	std::string Console_input;
@@ -150,6 +166,17 @@ bool Parse_consol::Checking_correct_types_of_vehicles(int &last_Type)
 		return true;
 	}
 	
+}
+
+void Parse_consol::Displaying_table_header()
+{
+	std::cout << "ID\t"
+		<< "Brand\t"
+		<< "Model\t"
+		<< "Year of release\t"
+		<< "Weight\t"
+		<< "Add field 1\t"
+		<< "Add field 2\t";
 }
 
 bool Parse_consol::Creation() // Command 1
@@ -248,6 +275,104 @@ bool Parse_consol::Display_with_sorting() // Command 4
 
 bool Parse_consol::Search() // Command 5
 {
+	int Field_number;
+	int count = 0;
+	std::cout << "Enter the search field\n";
+	std::cout << " 1.ID\n"
+		<< " 2.Brand\n"
+		<< " 3.Model\n"
+		<< " 4.Year of release\n"
+		<< " 5.Weight\n";
+	while (Checking_correct_number_short(Field_number)) {};
+	int Field_value_int;
+	std::string Field_value_string;
+	switch (Field_number)
+	{
+	case 1:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_id() == Field_value_int)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	case 2:
+		std::cout << "Enter value\n";
+		std::cin >> Field_value_string;
+		for (auto el : Table)
+		{
+			if (el.Get_Brand() == Field_value_string)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	case 3:
+		std::cout << "Enter value\n";
+		std::cin >> Field_value_string;
+		for (auto el : Table)
+		{
+			if (el.Get_Model() == Field_value_string)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	case 4:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Year_of_release() == Field_value_int)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	case 5:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Weight() == Field_value_int)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	default:
+		std::cout << "Invalid number\n";
+		break;
+	}
+	if (count == 0)
+	{
+		std::cout << "There are no fields with this value\n";
+	}
 	return false;
 }
 

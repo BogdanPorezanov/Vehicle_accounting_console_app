@@ -13,12 +13,14 @@ public:
 	~Parse_consol();
 	void run();
 private:
-	std::vector<std::string> Acceptable_types_of_vehicles = { "Car", "car", "Boat", "boat", "Airplane", "airplane", "Spaceship", "spaceship" };
+	//std::vector<std::string> Acceptable_types_of_vehicles = { "Car", "car", "Boat", "boat", "Airplane", "airplane", "Spaceship", "spaceship" };
 	std::vector<Vehicle> Table;
 	
 	bool Checking_correct_number_input(std::string, int&);
 	bool Checking_correct_number_short(std::string, int&);
+	bool Checking_correct_number_short(int&);
 	bool Checking_correct_types_of_vehicles(int&);
+	void Displaying_table_header();
 
 	// Command 1
 	bool Creation();
