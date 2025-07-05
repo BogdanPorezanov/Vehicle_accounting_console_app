@@ -17,8 +17,7 @@ Vehicle::~Vehicle()
 
 void Vehicle::Display()
 {
-	std::cout << id << "\t"
-		<< Brand << "\t"
+	std::cout << Brand << "\t"
 		<< Model << "\t"
 		<< Year_of_release << "\t"
 		<< Weight << "\t";

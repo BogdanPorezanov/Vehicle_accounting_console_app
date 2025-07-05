@@ -18,7 +18,7 @@ private:
 	
 	bool Checking_correct_number_input(std::string, int&);
 	bool Checking_correct_number_short(std::string, int&);
-	bool Checking_correct_types_of_vehicles(std::string&);
+	bool Checking_correct_types_of_vehicles(int&);
 
 	// Command 1
 	bool Creation();
@@ -35,34 +35,3 @@ private:
 	// Command 7
 	int Load();
 };
-
-//class Vehicle
-//{
-//public:
-//	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
-//	~Vehicle();
-//	int Get_id() { return id; }
-//	int Get_id_counter() { return id_counter; }
-//
-//protected:
-//	std::string Type;
-//private:
-//	static int id_counter;
-//
-//	int id;
-//	std::string Brand;
-//	std::string Model;
-//	int Year_of_release;
-//	int Weight;
-//
-//};
-//
-//class Car : public Vehicle
-//{
-//public:
-//	Car(std::string, std::string, int, int, int, int); // + число владельцев, пробег
-//	~Car();
-//private:
-//	int Number_of_owners;
-//	int Mileage;
-//};
