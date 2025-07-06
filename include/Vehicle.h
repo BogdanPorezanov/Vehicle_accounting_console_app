@@ -9,6 +9,7 @@ public:
 	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
 	~Vehicle();
 
+	virtual std::string Get_Type();
 	int Get_id() { return id; }
 	int Get_id_counter() { return id_counter; }
 	//virtual std::string Get_Type() = 0;
@@ -16,6 +17,9 @@ public:
 	std::string Get_Model() { return Model; }
 	int Get_Year_of_release() { return Year_of_release; }
 	int Get_Weight() { return Weight; }
+	virtual int Get_Field_1_int();
+	virtual std::string Get_Field_1_string();
+	virtual int Get_Field_2_int();
 
 	void Set_id_counter(int value) { this->id_counter = value; }
 
@@ -45,9 +49,11 @@ public:
 	Car(std::string, std::string, int, int, int, int); // + число владельцев, пробег
 	~Car();
 
-	std::string Get_Type() /*override*/ { return "Car"; }
+	std::string Get_Type() override { return "Car"; }
 	int Get_Number_of_owners() { return Number_of_owners; }
 	int Get_Mileage() { return Mileage; }
+	int Get_Field_1_int() override { return Number_of_owners; };
+	int Get_Field_2_int() override { return Mileage; };
 
 	void Display() override;
 	void Edit() override;
@@ -64,9 +70,11 @@ public:
 	Boat(std::string, std::string, int, int, int, int); // + водоизмещение, глубина погружения винта
 	~Boat();
 
-	std::string Get_Type() /*override*/ { return "Boat"; }
+	std::string Get_Type() override { return "Boat"; }
 	int Get_Displacement() { return Displacement; }
 	int Get_Propeller_immersion_depth() { return Propeller_immersion_depth; }
+	int Get_Field_1_int() override { return Displacement; };
+	int Get_Field_2_int() override { return Propeller_immersion_depth; };
 
 	void Display() override;
 	void Edit() override;
@@ -83,9 +91,11 @@ public:
 	Airplane(std::string, std::string, int, int, int, int); // + грузоподъёмность, размах крыла
 	~Airplane();
 
-	std::string Get_Type() /*override*/ { return "Airplane"; }
+	std::string Get_Type() override { return "Airplane"; }
 	int Get_Cargo_capacity() { return Cargo_capacity; }
 	int Get_Wingspan() { return Wingspan; }
+	int Get_Field_1_int() override { return Cargo_capacity; };
+	int Get_Field_2_int() override { return Wingspan; };
 
 	void Display() override;
 	void Edit() override;
@@ -102,9 +112,11 @@ public:
 	Spaceship(std::string, std::string, int, int, std::string, int); // + грузоподъёмность, размах крыла
 	~Spaceship();
 
-	std::string Get_Type() /*override*/ { return "Spaceship"; }
+	std::string Get_Type() override { return "Spaceship"; }
 	std::string Get_Fuel_type() { return Fuel_type; }
 	int Get_Hyperjump_range() { return Hyperjump_range; }
+	std::string Get_Field_1_string() override { return Fuel_type; };
+	int Get_Field_2_int() override { return Hyperjump_range; };
 
 	void Display() override;
 	void Edit() override;
