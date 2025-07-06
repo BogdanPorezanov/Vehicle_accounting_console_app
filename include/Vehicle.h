@@ -9,7 +9,7 @@ public:
 	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
 	~Vehicle();
 
-	virtual std::string Get_Type();
+	virtual std::string Get_Type() { return " "; };
 	int Get_id() { return id; }
 	int Get_id_counter() { return id_counter; }
 	//virtual std::string Get_Type() = 0;
@@ -17,9 +17,9 @@ public:
 	std::string Get_Model() { return Model; }
 	int Get_Year_of_release() { return Year_of_release; }
 	int Get_Weight() { return Weight; }
-	virtual int Get_Field_1_int();
-	virtual std::string Get_Field_1_string();
-	virtual int Get_Field_2_int();
+	virtual int Get_Field_1_int() { return 0; };
+	virtual std::string Get_Field_1_string() { return " "; };
+	virtual int Get_Field_2_int() { return 0; };
 
 	void Set_id_counter(int value) { this->id_counter = value; }
 

@@ -176,7 +176,7 @@ void Parse_consol::Displaying_table_header()
 		<< "Year of release\t"
 		<< "Weight\t"
 		<< "Add field 1\t"
-		<< "Add field 2\t";
+		<< "Add field 2\t\n";
 }
 
 bool Parse_consol::Creation() // Command 1
@@ -279,10 +279,19 @@ bool Parse_consol::Search() // Command 5
 	int count = 0;
 	std::cout << "Enter the search field\n";
 	std::cout << " 1.ID\n"
-		<< " 2.Brand\n"
-		<< " 3.Model\n"
-		<< " 4.Year of release\n"
-		<< " 5.Weight\n";
+		<< " 2.Type\n"
+		<< " 3.Brand\n"
+		<< " 4.Model\n"
+		<< " 5.Year of release\n"
+		<< " 6.Weight\n"
+		<< " 7.Number of owners\n"
+		<< " 8.Mileage\n"
+		<< " 9.Displacement\n"
+		<< " 10.Propeller immersion depth\n"
+		<< " 11.Cargo capacity\n"
+		<< " 12.Wingspan\n"
+		<< " 13.Fuel type\n"
+		<< " 14.Hyperjump range\n";
 	while (Checking_correct_number_short(Field_number)) {};
 	int Field_value_int;
 	std::string Field_value_string;
@@ -304,11 +313,32 @@ bool Parse_consol::Search() // Command 5
 		}
 		break;
 	case 2:
-		std::cout << "Enter value\n";
-		std::cin >> Field_value_string;
+		std::cout << "Enter the type of vehicle\n";
+		std::cout << " 1.Car\n"
+			<< " 2.Boat\n"
+			<< " 3.Airplane\n"
+			<< " 4.Spaceship\n";
+		while (Checking_correct_types_of_vehicles(Field_value_int)) {};
+		switch (Field_value_int)
+		{
+		case 1:
+			Field_value_string = "Car";
+			break;
+		case 2:
+			Field_value_string = "Boat";
+			break;
+		case 3:
+			Field_value_string = "Airplane";
+			break;
+		case 4:
+			Field_value_string = "Spaceship";
+			break;
+		default:
+			break;
+		}
 		for (auto el : Table)
 		{
-			if (el.Get_Brand() == Field_value_string)
+			if (el.Get_Type() == Field_value_string)
 			{
 				++count;
 				if (count == 1)
@@ -324,7 +354,7 @@ bool Parse_consol::Search() // Command 5
 		std::cin >> Field_value_string;
 		for (auto el : Table)
 		{
-			if (el.Get_Model() == Field_value_string)
+			if (el.Get_Brand() == Field_value_string)
 			{
 				++count;
 				if (count == 1)
@@ -336,10 +366,11 @@ bool Parse_consol::Search() // Command 5
 		}
 		break;
 	case 4:
-		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
-		for (auto& el : Table)
+		std::cout << "Enter value\n";
+		std::cin >> Field_value_string;
+		for (auto el : Table)
 		{
-			if (el.Get_Year_of_release() == Field_value_int)
+			if (el.Get_Model() == Field_value_string)
 			{
 				++count;
 				if (count == 1)
@@ -354,6 +385,21 @@ bool Parse_consol::Search() // Command 5
 		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
 		for (auto& el : Table)
 		{
+			if (el.Get_Year_of_release() == Field_value_int)
+			{
+				++count;
+				if (count == 1)
+				{
+					Displaying_table_header();
+				}
+				el.Edit();
+			}
+		}
+		break;
+	case 6:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
 			if (el.Get_Weight() == Field_value_int)
 			{
 				++count;
@@ -362,6 +408,151 @@ bool Parse_consol::Search() // Command 5
 					Displaying_table_header();
 				}
 				el.Edit();
+			}
+		}
+		break;
+	case 7:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Car")
+			{
+				if (el.Get_Field_1_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 8:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Car")
+			{
+				if (el.Get_Field_2_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 9:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Boat")
+			{
+				if (el.Get_Field_1_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 10:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Boat")
+			{
+				if (el.Get_Field_2_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 11:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Airplane")
+			{
+				if (el.Get_Field_1_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 12:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Airplane")
+			{
+				if (el.Get_Field_2_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 13:
+		std::cout << "Enter value\n";
+		std::cin >> Field_value_string;
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Spaceship")
+			{
+				if (el.Get_Field_1_string() == Field_value_string)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
+			}
+		}
+		break;
+	case 14:
+		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
+		for (auto& el : Table)
+		{
+			if (el.Get_Type() == "Spaceship")
+			{
+				if (el.Get_Field_1_int() == Field_value_int)
+				{
+					++count;
+					if (count == 1)
+					{
+						Displaying_table_header();
+					}
+					el.Edit();
+				}
 			}
 		}
 		break;
