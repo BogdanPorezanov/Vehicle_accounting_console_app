@@ -269,7 +269,21 @@ bool Parse_consol::Deletion() // Command 3
 
 bool Parse_consol::Display_with_sorting() // Command 4
 {
-	std::cout << "Enter the type of vehicle\n";
+	std::cout << "Enter the sort field\n";
+	std::cout << " 1.ID\n"
+		<< " 2.Type\n"
+		<< " 3.Brand\n"
+		<< " 4.Model\n"
+		<< " 5.Year of release\n"
+		<< " 6.Weight\n"
+		<< " 7.Number of owners\n"
+		<< " 8.Mileage\n"
+		<< " 9.Displacement\n"
+		<< " 10.Propeller immersion depth\n"
+		<< " 11.Cargo capacity\n"
+		<< " 12.Wingspan\n"
+		<< " 13.Fuel type\n"
+		<< " 14.Hyperjump range\n";
 	return false;
 }
 

@@ -25,7 +25,7 @@ public:
 
 	virtual void Display();
 	virtual void Edit();
-	//virtual void Edit(std::string, std::string, int, int);
+	virtual std::string String_to_save();
 
 protected:
 	bool Edit_string(std::string, std::string&);
@@ -36,6 +36,8 @@ protected:
 	std::string Model;
 	int Year_of_release;
 	int Weight;
+
+	std::string Dividing_symbol;
 private:
 	static int id_counter;
 
@@ -57,7 +59,7 @@ public:
 
 	void Display() override;
 	void Edit() override;
-	//void Edit(std::string, std::string, int, int, int, int);
+	std::string String_to_save() override;
 
 private:
 	int Number_of_owners;
@@ -78,7 +80,7 @@ public:
 
 	void Display() override;
 	void Edit() override;
-	//void Edit(std::string, std::string, int, int, int, int);
+	std::string String_to_save() override;
 
 private:
 	int Displacement;
@@ -99,7 +101,7 @@ public:
 
 	void Display() override;
 	void Edit() override;
-	//void Edit(std::string, std::string, int, int, int, int);
+	std::string String_to_save() override;
 
 private:
 	int Cargo_capacity;
@@ -120,7 +122,7 @@ public:
 
 	void Display() override;
 	void Edit() override;
-	//void Edit(std::string, std::string, int, int, std::string, int);
+	std::string String_to_save() override;
 
 private:
 	std::string Fuel_type;
