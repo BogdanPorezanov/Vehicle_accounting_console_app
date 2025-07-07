@@ -584,7 +584,7 @@ bool Parse_consol::Search() // Command 5
 int Parse_consol::Save() // Command 6
 {
 	std::string path;
-	std::cout << "Specify the path to save to the file:";
+	std::cout << "Specify the path to save to the file: ";
 	std::cin >> path;
 	fs.open(path, std::fstream::out);
 	if (!fs.is_open())
@@ -596,7 +596,7 @@ int Parse_consol::Save() // Command 6
 	fs << Table.size() << "\n";
 	for (auto el : Table)
 	{
-		fs << ;
+		fs << el.String_to_save() << "\n";
 	}
 	fs.close();
 	return 0;

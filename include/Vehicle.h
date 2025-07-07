@@ -37,7 +37,7 @@ protected:
 	int Year_of_release;
 	int Weight;
 
-	std::string Dividing_symbol;
+	std::string Dividing_symbol = ";";
 private:
 	static int id_counter;
 
