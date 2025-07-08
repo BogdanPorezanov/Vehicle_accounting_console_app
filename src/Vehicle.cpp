@@ -15,7 +15,7 @@ Vehicle::~Vehicle()
 {
 }
 
-void Vehicle::Display()
+const void Vehicle::Display()
 {
 	std::cout << Brand << "\t"
 		<< Model << "\t"
@@ -31,7 +31,7 @@ void Vehicle::Edit()
 	while (Edit_number("Enter the weight\n", this->Weight)) {};
 }
 
-std::string Vehicle::String_to_save()
+const std::string Vehicle::String_to_save()
 {
 	std::string value_to_save = std::to_string(id); value_to_save.append(Dividing_symbol);
 	value_to_save.append(Brand); value_to_save.append(Dividing_symbol);
@@ -91,7 +91,7 @@ Car::~Car()
 {
 }
 
-void Car::Display()
+const void Car::Display()
 {
 	std::cout << id << "\t"
 		<< "Car\t";
@@ -107,7 +107,7 @@ void Car::Edit()
 	while (Edit_number("Enter the mileage\n", this->Mileage)) {};
 }
 
-std::string Car::String_to_save()
+const std::string Car::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
 	value_to_save.append(std::to_string(Number_of_owners)); value_to_save.append(Dividing_symbol);
@@ -125,7 +125,7 @@ Boat::~Boat()
 {
 }
 
-void Boat::Display()
+const void Boat::Display()
 {
 	std::cout << id << "\t"
 		<< "Boat\t";
@@ -141,7 +141,7 @@ void Boat::Edit()
 	while (Edit_number("Enter the propeller immersion depth\n", this->Propeller_immersion_depth)) {};
 }
 
-std::string Boat::String_to_save()
+const std::string Boat::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
 	value_to_save.append(std::to_string(Displacement)); value_to_save.append(Dividing_symbol);
@@ -159,7 +159,7 @@ Airplane::~Airplane()
 {
 }
 
-void Airplane::Display()
+const void Airplane::Display()
 {
 	std::cout << id << "\t"
 		<< "Airplane\t";
@@ -175,7 +175,7 @@ void Airplane::Edit()
 	while (Edit_number("Enter the wingspan\n", this->Wingspan)) {};
 }
 
-std::string Airplane::String_to_save()
+const std::string Airplane::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
 	value_to_save.append(std::to_string(Cargo_capacity)); value_to_save.append(Dividing_symbol);
@@ -193,7 +193,7 @@ Spaceship::~Spaceship()
 {
 }
 
-void Spaceship::Display()
+const void Spaceship::Display()
 {
 	std::cout << id << "\t"
 		<< "Spaceship\t";
@@ -209,7 +209,7 @@ void Spaceship::Edit()
 	while (Edit_number("Enter the hyperjump range\n", this->Hyperjump_range)) {};
 }
 
-std::string Spaceship::String_to_save()
+const std::string Spaceship::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
 	value_to_save.append(Fuel_type); value_to_save.append(Dividing_symbol);
