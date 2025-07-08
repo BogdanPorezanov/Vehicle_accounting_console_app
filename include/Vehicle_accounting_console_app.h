@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <memory>
 #include "Vehicle.h"
 
 class Parse_consol
@@ -15,8 +16,10 @@ public:
 	void run();
 private:
 	//std::vector<std::string> Acceptable_types_of_vehicles = { "Car", "car", "Boat", "boat", "Airplane", "airplane", "Spaceship", "spaceship" };
-	std::vector<Vehicle> Table;
-
+	
+	//std::vector<Vehicle> Table;
+	std::vector<std::unique_ptr<Vehicle>> Table;
+	
 	std::fstream fs;
 	
 	bool Checking_correct_number_input(std::string, int&);

@@ -206,21 +206,21 @@ bool Parse_consol::Creation() // Command 1
 		int last_Mileage;
 		while (Checking_correct_number_input("Enter the number of owners\n", last_Number_of_owners)) {};
 		while (Checking_correct_number_input("Enter the mileage\n", last_Mileage)) {};
-		Table.push_back(Car(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
+		Table.push_back(std::make_unique<Car>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
 		break;
 	case 2:
 		int last_Displacement;
 		int last_Propeller_immersion_depth;
 		while (Checking_correct_number_input("Enter the displacement\n", last_Displacement)) {};
 		while (Checking_correct_number_input("Enter the propeller immersion depth\n", last_Propeller_immersion_depth)) {};
-		Table.push_back(Boat(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
+		Table.push_back(std::make_unique<Boat>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
 		break;
 	case 3:
 		int last_Cargo_capacity;
 		int last_Wingspan;
 		while (Checking_correct_number_input("Enter the cargo capacity\n", last_Cargo_capacity)) {};
 		while (Checking_correct_number_input("Enter the wingspan\n", last_Wingspan)) {};
-		Table.push_back(Airplane(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
+		Table.push_back(std::make_unique<Airplane>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
 		break;
 	case 4:
 		std::string last_Fuel_type;
@@ -228,10 +228,10 @@ bool Parse_consol::Creation() // Command 1
 		std::cout << "Enter the fuel type\n";
 		std::cin >> last_Fuel_type;
 		while (Checking_correct_number_input("Enter the hyperjump range\n", last_Hyperjump_range)) {};
-		Table.push_back(Spaceship(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
+		Table.push_back(std::make_unique<Spaceship>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
 		break;
 	}
-	std::cout << "Record was created with ID:" << Table[0].Get_id_counter() << std::endl;
+	std::cout << "Record was created with ID:" << Table[0]->Get_id_counter() << std::endl;
 	return false;
 }
 
@@ -241,9 +241,9 @@ bool Parse_consol::Editing() // Command 2
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
 	for (auto &el : Table)
 	{
-		if (el.Get_id() == id_value)
+		if (el->Get_id() == id_value)
 		{
-			el.Edit();
+			el->Edit();
 			return false;
 		}
 	}
@@ -253,7 +253,8 @@ bool Parse_consol::Editing() // Command 2
 
 bool Parse_consol::Deletion() // Command 3
 {
-	int id_value;
+	// ещё посмотрим
+	/*int id_value;
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
 	for (auto i = Table.begin(); i != Table.end(); ++i)
 	{
@@ -263,7 +264,7 @@ bool Parse_consol::Deletion() // Command 3
 			return false;
 		}
 	}
-	std::cout << "Vehicle with this ID does not exist!\n";
+	std::cout << "Vehicle with this ID does not exist!\n";*/
 	return true;
 }
 
@@ -309,20 +310,21 @@ bool Parse_consol::Search() // Command 5
 	while (Checking_correct_number_short(Field_number)) {};
 	int Field_value_int;
 	std::string Field_value_string;
-	switch (Field_number)
+	// позже поправлю
+	/*switch (Field_number)
 	{
 	case 1:
 		while (Checking_correct_number_input("Enter value\n", Field_value_int)) {};
 		for (auto& el : Table)
 		{
-			if (el.Get_id() == Field_value_int)
+			if (el->Get_id() == Field_value_int)
 			{
 				++count;
 				if (count == 1)
 				{
 					Displaying_table_header();
 				}
-				el.Edit();
+				el->Edit();
 			}
 		}
 		break;
@@ -573,7 +575,7 @@ bool Parse_consol::Search() // Command 5
 	default:
 		std::cout << "Invalid number\n";
 		break;
-	}
+	}*/
 	if (count == 0)
 	{
 		std::cout << "There are no fields with this value\n";
@@ -594,9 +596,9 @@ int Parse_consol::Save() // Command 6
 		return 1;
 	}
 	fs << Table.size() << "\n";
-	for (auto el : Table)
+	for (auto &el : Table)
 	{
-		fs << el.String_to_save() << "\n";
+		fs << el->String_to_save() << "\n";
 	}
 	fs.close();
 	return 0;
