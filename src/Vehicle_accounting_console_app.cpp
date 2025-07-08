@@ -40,7 +40,7 @@ void Parse_consol::run()
 		}
 		catch (const std::exception&)
 		{
-			std::cout << "invalid command number\n";
+			std::cout << "Invalid command number\n";
 			continue;
 		}
 		switch (In_number)
@@ -585,17 +585,23 @@ bool Parse_consol::Search() // Command 5
 
 int Parse_consol::Save() // Command 6
 {
+	if (Table.size() == 0)
+	{
+		std::cout << "There are no records to save in this table\n";
+		return 2;
+	}
 	std::string path;
-	std::cout << "Specify the path to save to the file: ";
+	std::cout << "Specify the path to the save file: ";
 	std::cin >> path;
 	fs.open(path, std::fstream::out);
 	if (!fs.is_open())
 	{
-		std::cout << "file creation error";
+		std::cout << "File creation error\n";
 		fs.close();
 		return 1;
 	}
 	fs << Table.size() << "\n";
+	std::sort(Table.begin(), Table.end(), [](auto &a, auto &b) {return (a->Get_id()) < (b->Get_id()); });
 	for (auto &el : Table)
 	{
 		fs << el->String_to_save() << "\n";
@@ -606,6 +612,33 @@ int Parse_consol::Save() // Command 6
 
 int Parse_consol::Load() // Command 7
 {
+	std::string path;
+	std::cout << "Specify the path to the load file: ";
+	std::cin >> path;
+	fs.open(path, std::fstream::in);
+	if (!fs.is_open())
+	{
+		std::cout << "File open error\n";
+		fs.close();
+		return 1;
+	}
+	std::string line;
+	std::getline(fs, line);
+	int size;
+	try
+	{
+		size = std::stoi(line);
+	}
+	catch (const std::exception&)
+	{
+		std::cout << "Incorrect data in the file being opened\n";
+		return 2;
+	}
+	Table.clear();
+	Table.reserve(size);
+	
+
+	fs.close();
 	return 0;
 }
 
