@@ -637,6 +637,11 @@ int Parse_consol::Load() // Command 7
 	Table.clear();
 	Table.reserve(size);
 	
+	while (std::getline(fs, line))
+	{
+
+	}
+	
 
 	fs.close();
 	return 0;
