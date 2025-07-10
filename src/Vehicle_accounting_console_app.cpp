@@ -237,6 +237,7 @@ bool Parse_consol::Creation() // Command 1
 
 bool Parse_consol::Editing() // Command 2
 {
+	std::cout << "Enter \'-\' to skip the field\n";
 	int id_value;
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
 	for (auto &el : Table)
@@ -637,9 +638,30 @@ int Parse_consol::Load() // Command 7
 	Table.clear();
 	Table.reserve(size);
 	
+	int last_id;
+	std::string last_Type;
+	std::string last_Brand;
+	std::string last_Model;
+	int last_Year_of_release;
+	int last_Weight;
+
 	while (std::getline(fs, line))
 	{
-
+		try
+		{
+			last_id = std::stoi(strtok(line.data(), ";"));
+			last_Type = strtok(nullptr, ";");
+			last_Brand = strtok(nullptr, ";");
+			last_Model = strtok(nullptr, ";");
+			last_Year_of_release = std::stoi(strtok(nullptr, ";"));
+			last_Weight = std::stoi(strtok(nullptr, ";"));
+		}
+		catch (const std::exception&)
+		{
+			std::cout << "Incorrect data in the file being opened\n";
+			return 2;
+		}
+		
 	}
 	
 

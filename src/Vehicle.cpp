@@ -110,6 +110,7 @@ void Car::Edit()
 const std::string Car::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
+	value_to_save.append("Car"); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Number_of_owners)); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Mileage)); value_to_save.append(Dividing_symbol);
 	return value_to_save;
@@ -144,6 +145,7 @@ void Boat::Edit()
 const std::string Boat::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
+	value_to_save.append("Boat"); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Displacement)); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Propeller_immersion_depth)); value_to_save.append(Dividing_symbol);
 	return value_to_save;
@@ -178,6 +180,7 @@ void Airplane::Edit()
 const std::string Airplane::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
+	value_to_save.append("Airplane"); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Cargo_capacity)); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Wingspan)); value_to_save.append(Dividing_symbol);
 	return value_to_save;
@@ -212,6 +215,7 @@ void Spaceship::Edit()
 const std::string Spaceship::String_to_save()
 {
 	std::string value_to_save = Vehicle::String_to_save();
+	value_to_save.append("Spaceship"); value_to_save.append(Dividing_symbol);
 	value_to_save.append(Fuel_type); value_to_save.append(Dividing_symbol);
 	value_to_save.append(std::to_string(Hyperjump_range)); value_to_save.append(Dividing_symbol);
 	return value_to_save;

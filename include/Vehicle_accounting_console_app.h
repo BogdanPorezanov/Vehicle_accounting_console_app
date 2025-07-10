@@ -6,6 +6,7 @@
 #include <fstream>
 #include <algorithm>
 #include <memory>
+#include <cstring>
 #include "Vehicle.h"
 
 class Parse_consol
