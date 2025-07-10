@@ -638,7 +638,7 @@ int Parse_consol::Load() // Command 7
 	Table.clear();
 	Table.reserve(size);
 	
-	int last_id;
+	int last_id = 0;
 	std::string last_Type;
 	std::string last_Brand;
 	std::string last_Model;
@@ -675,7 +675,7 @@ int Parse_consol::Load() // Command 7
 				std::cout << "Incorrect data in the file being opened\n";
 				return 2;
 			}
-			Table.push_back(std::make_unique<Car>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
+			Table.push_back(std::make_unique<Car>(last_id, last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
 		}
 		else if (last_Type == "Boat")
 		{
@@ -691,7 +691,7 @@ int Parse_consol::Load() // Command 7
 				std::cout << "Incorrect data in the file being opened\n";
 				return 2;
 			}
-			Table.push_back(std::make_unique<Boat>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
+			Table.push_back(std::make_unique<Boat>(last_id, last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
 		}
 		else if (last_Type == "Airplane")
 		{
@@ -707,7 +707,7 @@ int Parse_consol::Load() // Command 7
 				std::cout << "Incorrect data in the file being opened\n";
 				return 2;
 			}
-			Table.push_back(std::make_unique<Airplane>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
+			Table.push_back(std::make_unique<Airplane>(last_id, last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
 		}
 		else if (last_Type == "Spaceship")
 		{
@@ -722,7 +722,7 @@ int Parse_consol::Load() // Command 7
 				std::cout << "Incorrect data in the file being opened\n";
 				return 2;
 			}
-			Table.push_back(std::make_unique<Spaceship>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
+			Table.push_back(std::make_unique<Spaceship>(last_id, last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
 		}
 		else
 		{
@@ -730,7 +730,7 @@ int Parse_consol::Load() // Command 7
 			return 2;
 		}
 	}
-	
+	Table[0]->Set_id_counter(last_id);
 
 	fs.close();
 	return 0;

@@ -7,6 +7,7 @@ class Vehicle
 {
 public:
 	Vehicle(std::string, std::string, int, int); // марка, модель, год выпуска, вес
+	Vehicle(int, std::string, std::string, int, int); // марка, модель, год выпуска, вес
 	~Vehicle();
 
 	//virtual std::string Get_Type() { return " "; };
@@ -49,6 +50,7 @@ class Car : public Vehicle
 {
 public:
 	Car(std::string, std::string, int, int, int, int); // + число владельцев, пробег
+	Car(int, std::string, std::string, int, int, int, int); // + число владельцев, пробег
 	~Car();
 
 	const std::string Get_Type() override { return "Car"; }
@@ -71,6 +73,7 @@ class Boat : public Vehicle
 {
 public:
 	Boat(std::string, std::string, int, int, int, int); // + водоизмещение, глубина погружения винта
+	Boat(int, std::string, std::string, int, int, int, int); // + водоизмещение, глубина погружения винта
 	~Boat();
 
 	const std::string Get_Type() override { return "Boat"; }
@@ -93,6 +96,7 @@ class Airplane : public Vehicle
 {
 public:
 	Airplane(std::string, std::string, int, int, int, int); // + грузоподъёмность, размах крыла
+	Airplane(int, std::string, std::string, int, int, int, int); // + грузоподъёмность, размах крыла
 	~Airplane();
 
 	const std::string Get_Type() override { return "Airplane"; }
@@ -115,6 +119,7 @@ class Spaceship : public Vehicle
 {
 public:
 	Spaceship(std::string, std::string, int, int, std::string, int); // + грузоподъёмность, размах крыла
+	Spaceship(int, std::string, std::string, int, int, std::string, int); // + грузоподъёмность, размах крыла
 	~Spaceship();
 
 	const std::string Get_Type() override { return "Spaceship"; }
