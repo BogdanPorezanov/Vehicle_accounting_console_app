@@ -650,18 +650,85 @@ int Parse_consol::Load() // Command 7
 		try
 		{
 			last_id = std::stoi(strtok(line.data(), ";"));
-			last_Type = strtok(nullptr, ";");
 			last_Brand = strtok(nullptr, ";");
 			last_Model = strtok(nullptr, ";");
 			last_Year_of_release = std::stoi(strtok(nullptr, ";"));
 			last_Weight = std::stoi(strtok(nullptr, ";"));
+			last_Type = strtok(nullptr, ";");
 		}
 		catch (const std::exception&)
 		{
 			std::cout << "Incorrect data in the file being opened\n";
 			return 2;
 		}
-		
+		if (last_Type == "Car")
+		{
+			int last_Number_of_owners;
+			int last_Mileage;
+			try
+			{
+				last_Number_of_owners = std::stoi(strtok(nullptr, ";"));;
+				last_Mileage = std::stoi(strtok(nullptr, ";"));;
+			}
+			catch (const std::exception&)
+			{
+				std::cout << "Incorrect data in the file being opened\n";
+				return 2;
+			}
+			Table.push_back(std::make_unique<Car>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Number_of_owners, last_Mileage));
+		}
+		else if (last_Type == "Boat")
+		{
+			int last_Displacement;
+			int last_Propeller_immersion_depth;
+			try
+			{
+				last_Displacement = std::stoi(strtok(nullptr, ";"));;
+				last_Propeller_immersion_depth = std::stoi(strtok(nullptr, ";"));;
+			}
+			catch (const std::exception&)
+			{
+				std::cout << "Incorrect data in the file being opened\n";
+				return 2;
+			}
+			Table.push_back(std::make_unique<Boat>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Displacement, last_Propeller_immersion_depth));
+		}
+		else if (last_Type == "Airplane")
+		{
+			int last_Cargo_capacity;
+			int last_Wingspan;
+			try
+			{
+				last_Cargo_capacity = std::stoi(strtok(nullptr, ";"));;
+				last_Wingspan = std::stoi(strtok(nullptr, ";"));;
+			}
+			catch (const std::exception&)
+			{
+				std::cout << "Incorrect data in the file being opened\n";
+				return 2;
+			}
+			Table.push_back(std::make_unique<Airplane>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Cargo_capacity, last_Wingspan));
+		}
+		else if (last_Type == "Spaceship")
+		{
+			std::string last_Fuel_type = strtok(nullptr, ";");;
+			int last_Hyperjump_range;
+			try
+			{
+				last_Hyperjump_range = std::stoi(strtok(nullptr, ";"));;
+			}
+			catch (const std::exception&)
+			{
+				std::cout << "Incorrect data in the file being opened\n";
+				return 2;
+			}
+			Table.push_back(std::make_unique<Spaceship>(last_Brand, last_Model, last_Year_of_release, last_Weight, last_Fuel_type, last_Hyperjump_range));
+		}
+		else
+		{
+			std::cout << "Incorrect data in the file being opened\n";
+			return 2;
+		}
 	}
 	
 
