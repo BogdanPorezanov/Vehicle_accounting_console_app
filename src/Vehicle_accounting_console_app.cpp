@@ -326,6 +326,7 @@ bool Parse_consol::Display_with_sorting() // Command 4
 			{
 				if (b->Get_Type() == "Car")
 				{
+					
 					return (a->Get_Field_1_int() < b->Get_Field_1_int());
 				}
 				return true;
