@@ -245,6 +245,7 @@ bool Parse_consol::Editing() // Command 2
 		if (el->Get_id() == id_value)
 		{
 			el->Edit();
+			std::cout << "Record was edited successfully\n";
 			return false;
 		}
 	}
@@ -254,18 +255,22 @@ bool Parse_consol::Editing() // Command 2
 
 bool Parse_consol::Deletion() // Command 3
 {
-	// ещё посмотрим
-	/*int id_value;
+	int id_value;
 	while (Checking_correct_number_input("Enter ID vehicle\n", id_value)) {};
 	for (auto i = Table.begin(); i != Table.end(); ++i)
 	{
-		if (i->Get_id() == id_value)
+		if ((*i)->Get_id() == id_value)
 		{
+			if ((*i)->Get_id() == (*i)->Get_id_counter())
+			{
+				(*i)->Set_id_counter((*i)->Get_id_counter() - 1);
+			}
 			Table.erase(i);
+			std::cout << "Record was deleted successfully\n";
 			return false;
 		}
 	}
-	std::cout << "Vehicle with this ID does not exist!\n";*/
+	std::cout << "Vehicle with this ID does not exist!\n";
 	return true;
 }
 
@@ -608,6 +613,7 @@ int Parse_consol::Save() // Command 6
 		fs << el->String_to_save() << "\n";
 	}
 	fs.close();
+	std::cout << "Save is successful\n";
 	return 0;
 }
 
@@ -731,8 +737,8 @@ int Parse_consol::Load() // Command 7
 		}
 	}
 	Table[0]->Set_id_counter(last_id);
-
 	fs.close();
+	std::cout << "Load is successful\n";
 	return 0;
 }
 
