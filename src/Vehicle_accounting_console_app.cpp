@@ -321,7 +321,7 @@ bool Parse_consol::Display_with_sorting() // Command 4
 		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Weight() < b->Get_Weight()); });
 		break;
 	case 7:
-		std::sort(Table.begin(), Table.end(), [=](auto& a, auto& b) { 
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { 
 			if (a->Get_Type() == "Car")
 			{
 				if (b->Get_Type() == "Car")
@@ -335,7 +335,125 @@ bool Parse_consol::Display_with_sorting() // Command 4
 			{
 				return false;
 			}
-			
+		});
+		break;
+	case 8:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Car")
+			{
+				if (b->Get_Type() == "Car")
+				{
+
+					return (a->Get_Field_2_int() < b->Get_Field_2_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 9:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Boat")
+			{
+				if (b->Get_Type() == "Boat")
+				{
+
+					return (a->Get_Field_1_int() < b->Get_Field_1_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 10:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Boat")
+			{
+				if (b->Get_Type() == "Boat")
+				{
+
+					return (a->Get_Field_2_int() < b->Get_Field_2_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 11:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Airplane")
+			{
+				if (b->Get_Type() == "Airplane")
+				{
+
+					return (a->Get_Field_1_int() < b->Get_Field_1_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 12:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Airplane")
+			{
+				if (b->Get_Type() == "Airplane")
+				{
+
+					return (a->Get_Field_2_int() < b->Get_Field_2_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 13:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Spaceship")
+			{
+				if (b->Get_Type() == "Spaceship")
+				{
+
+					return (a->Get_Field_1_string() < b->Get_Field_1_string());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			});
+		break;
+	case 14:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) {
+			if (a->Get_Type() == "Spaceship")
+			{
+				if (b->Get_Type() == "Spaceship")
+				{
+
+					return (a->Get_Field_2_int() < b->Get_Field_2_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 			});
 		break;
 	default:
