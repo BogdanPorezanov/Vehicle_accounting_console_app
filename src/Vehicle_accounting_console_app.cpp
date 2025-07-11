@@ -171,9 +171,10 @@ bool Parse_consol::Checking_correct_types_of_vehicles(int &last_Type)
 void Parse_consol::Displaying_table_header()
 {
 	std::cout << "ID\t"
-		<< "Brand\t"
-		<< "Model\t"
-		<< "Year of release\t"
+		<< "Type\t\t"
+		<< "Brand\t\t"
+		<< "Model\t\t"
+		<< "Year\t" // Year of release
 		<< "Weight\t"
 		<< "Add field 1\t"
 		<< "Add field 2\t\n";
@@ -276,6 +277,12 @@ bool Parse_consol::Deletion() // Command 3
 
 bool Parse_consol::Display_with_sorting() // Command 4
 {
+	if (Table.empty())
+	{
+		std::cout << "There are no records here\n"; 
+		return true;
+	}
+	int Field_number;
 	std::cout << "Enter the sort field\n";
 	std::cout << " 1.ID\n"
 		<< " 2.Type\n"
@@ -291,6 +298,52 @@ bool Parse_consol::Display_with_sorting() // Command 4
 		<< " 12.Wingspan\n"
 		<< " 13.Fuel type\n"
 		<< " 14.Hyperjump range\n";
+	while (Checking_correct_number_short(Field_number)) {};
+	Displaying_table_header();
+	switch (Field_number)
+	{
+	case 1:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_id() < b->Get_id()); });
+		break;
+	case 2:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Type() < b->Get_Type()); });
+		break;
+	case 3:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Brand() < b->Get_Brand()); });
+		break;
+	case 4:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Model() < b->Get_Model()); });
+		break;
+	case 5:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Year_of_release() < b->Get_Year_of_release()); });
+		break;
+	case 6:
+		std::sort(Table.begin(), Table.end(), [](auto& a, auto& b) { return (a->Get_Weight() < b->Get_Weight()); });
+		break;
+	case 7:
+		std::sort(Table.begin(), Table.end(), [=](auto& a, auto& b) { 
+			if (a->Get_Type() == "Car")
+			{
+				if (b->Get_Type() == "Car")
+				{
+					return (a->Get_Field_1_int() < b->Get_Field_1_int());
+				}
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+			});
+		break;
+	default:
+		break;
+	}
+	for (auto& el : Table)
+	{
+		el->Display();
+	}
 	return false;
 }
 

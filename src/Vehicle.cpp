@@ -26,8 +26,8 @@ Vehicle::~Vehicle()
 
 const void Vehicle::Display()
 {
-	std::cout << Brand << "\t"
-		<< Model << "\t"
+	std::cout << Brand << "\t\t"
+		<< Model << "\t\t"
 		<< Year_of_release << "\t"
 		<< Weight << "\t";
 }
@@ -109,10 +109,10 @@ Car::~Car()
 const void Car::Display()
 {
 	std::cout << id << "\t"
-		<< "Car\t";
+		<< "Car\t\t";
 	Vehicle::Display();
 	std::cout << Number_of_owners << "\t"
-		<< Mileage << "\t";
+		<< Mileage << "\t\n";
 }
 
 void Car::Edit()
@@ -150,10 +150,10 @@ Boat::~Boat()
 const void Boat::Display()
 {
 	std::cout << id << "\t"
-		<< "Boat\t";
+		<< "Boat\t\t";
 	Vehicle::Display();
 	std::cout << Displacement << "\t"
-		<< Propeller_immersion_depth << "\t";
+		<< Propeller_immersion_depth << "\t\n";
 }
 
 void Boat::Edit()
@@ -194,7 +194,7 @@ const void Airplane::Display()
 		<< "Airplane\t";
 	Vehicle::Display();
 	std::cout << Cargo_capacity << "\t"
-		<< Wingspan << "\t";
+		<< Wingspan << "\t\n";
 }
 
 void Airplane::Edit()
@@ -235,7 +235,7 @@ const void Spaceship::Display()
 		<< "Spaceship\t";
 	Vehicle::Display();
 	std::cout << Fuel_type << "\t"
-		<< Hyperjump_range << "\t";
+		<< Hyperjump_range << "\t\n";
 }
 
 void Spaceship::Edit()
