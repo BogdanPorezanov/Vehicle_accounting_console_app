@@ -304,6 +304,11 @@ bool Parse_consol::Display_with_sorting() // Command 4
 		<< " 13.Fuel type\n"
 		<< " 14.Hyperjump range\n";
 	while (Checking_correct_number_short(Field_number)) {};
+	if (Field_number > 14 || Field_number < 1)
+	{
+		std::cout << "Invalid number\n";
+		return true;
+	}
 	Displaying_table_header();
 	switch (Field_number)
 	{
