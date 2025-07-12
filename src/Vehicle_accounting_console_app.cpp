@@ -466,8 +466,6 @@ bool Parse_consol::Display_with_sorting() // Command 4
 			}
 			});
 		break;
-	default:
-		break;
 	}
 	for (auto& el : Table)
 	{
@@ -480,6 +478,7 @@ bool Parse_consol::Search() // Command 5
 {
 	int Field_number;
 	int count = 0;
+	bool fFirstFound = 0;
 	std::cout << "Enter the search field\n";
 	std::cout << " 1.ID\n"
 		<< " 2.Type\n"
@@ -496,9 +495,259 @@ bool Parse_consol::Search() // Command 5
 		<< " 13.Fuel type\n"
 		<< " 14.Hyperjump range\n";
 	while (Checking_correct_number_short(Field_number)) {};
+	if (Field_number > 14 || Field_number < 1)
+	{
+		std::cout << "Invalid number\n";
+		return true;
+	}
 	int Field_value_int;
 	std::string Field_value_string;
-	// позже поправлю
+	if (Field_number == 2)
+	{
+		std::cout << "Enter the type of vehicle\n";
+		std::cout << " 1.Car\n"
+			<< " 2.Boat\n"
+			<< " 3.Airplane\n"
+			<< " 4.Spaceship\n";
+		while (Checking_correct_types_of_vehicles(Field_value_int)) {};
+		switch (Field_value_int)
+		{
+		case 1:
+			Field_value_string = "Car";
+			break;
+		case 2:
+			Field_value_string = "Boat";
+			break;
+		case 3:
+			Field_value_string = "Airplane";
+			break;
+		case 4:
+			Field_value_string = "Spaceship";
+			break;
+		}
+	}
+	else if (Field_number == 3 || Field_number == 4 || Field_number == 13)
+	{
+		std::cout << "Enter value\n";
+		std::cin >> Field_value_string;
+	}
+	else
+	{
+		Checking_correct_number_input("Enter value\n", Field_value_int);
+	}
+	switch (Field_number)
+	{
+	case 1:
+		for (auto& el : Table)
+		{
+			if (el->Get_id() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 2:
+		for (auto& el : Table)
+		{
+			if (el->Get_Type() == Field_value_string)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 3:
+		for (auto& el : Table)
+		{
+			if (el->Get_Brand() == Field_value_string)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 4:
+		for (auto& el : Table)
+		{
+			if (el->Get_Model() == Field_value_string)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 5:
+		for (auto& el : Table)
+		{
+			if (el->Get_Year_of_release() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 6:
+		for (auto& el : Table)
+		{
+			if (el->Get_Weight() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 7:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_1_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 8:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_2_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 9:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_1_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 10:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_2_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 11:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_1_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 12:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_2_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 13:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_1_string() == Field_value_string)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+		break;
+	case 14:
+		for (auto& el : Table)
+		{
+			if (el->Get_Field_2_int() == Field_value_int)
+			{
+				++count;
+				if (count == 1 || fFirstFound == 0)
+				{
+					fFirstFound = 1;
+					Displaying_table_header();
+				}
+				el->Display();
+			}
+		}
+	}
+
 	/*switch (Field_number)
 	{
 	case 1:
@@ -767,6 +1016,7 @@ bool Parse_consol::Search() // Command 5
 	if (count == 0)
 	{
 		std::cout << "There are no fields with this value\n";
+		return true;
 	}
 	return false;
 }
