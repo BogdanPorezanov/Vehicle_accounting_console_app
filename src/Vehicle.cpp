@@ -111,7 +111,7 @@ const void Car::Display()
 	std::cout << id << "\t"
 		<< "Car\t\t";
 	Vehicle::Display();
-	std::cout << Number_of_owners << "\t"
+	std::cout << Number_of_owners << "\t\t"
 		<< Mileage << "\t\n";
 }
 
@@ -152,7 +152,7 @@ const void Boat::Display()
 	std::cout << id << "\t"
 		<< "Boat\t\t";
 	Vehicle::Display();
-	std::cout << Displacement << "\t"
+	std::cout << Displacement << "\t\t"
 		<< Propeller_immersion_depth << "\t\n";
 }
 
@@ -193,7 +193,7 @@ const void Airplane::Display()
 	std::cout << id << "\t"
 		<< "Airplane\t";
 	Vehicle::Display();
-	std::cout << Cargo_capacity << "\t"
+	std::cout << Cargo_capacity << "\t\t"
 		<< Wingspan << "\t\n";
 }
 
@@ -234,7 +234,7 @@ const void Spaceship::Display()
 	std::cout << id << "\t"
 		<< "Spaceship\t";
 	Vehicle::Display();
-	std::cout << Fuel_type << "\t"
+	std::cout << Fuel_type << "\t\t"
 		<< Hyperjump_range << "\t\n";
 }
 

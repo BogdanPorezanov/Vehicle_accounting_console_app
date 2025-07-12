@@ -170,6 +170,11 @@ bool Parse_consol::Checking_correct_types_of_vehicles(int &last_Type)
 
 void Parse_consol::Displaying_table_header()
 {
+	std::cout << "Add field 1 and 2 mean:\n"
+		<< "For Car - number of owners and mileage\n"
+		<< "For Boat - displacement and propeller immersion depth\n"
+		<< "For Airplane - cargo capacity and wingspan\n"
+		<< "For Spaceship - fuel type and hyperjump range\n\n";
 	std::cout << "ID\t"
 		<< "Type\t\t"
 		<< "Brand\t\t"
